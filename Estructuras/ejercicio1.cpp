@@ -1,5 +1,5 @@
 //programa 1 estructura c++
-#include<stdio.h>
+#include<stdio
 #include<iostream>
 int main(){
     /*
