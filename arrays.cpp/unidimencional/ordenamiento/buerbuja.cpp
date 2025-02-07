@@ -96,30 +96,30 @@ void comparaciones( int p1, int p2 , int p3){
     
 }
 
-int main()
-{
-    int ne;
-    int p1;
-    int p2;
-    int p3;
-    cout << "Ingrese el numero de elementos: ";
-    cin >> ne;
-    int vec[ne];
-    llenarTabla(vec, ne);
-    cout << "Vector original: ";
-    mostrarVector(vec, ne);
-    cout << endl;
-    cout << "El numero de comparaciones burbuja v1 es: " << ordenarBurbuja(vec, ne) << endl;
-    cout << "El numero de comparaciones burbuja v2 es: " << ordenarBurbujaV2(vec, ne) << endl;
-    cout << "El numero de comparaciones burbuja v3 es: " << ordenarBurbujaV3(vec, ne) << endl;
-    cout << "Vector ordenado" << endl;
-    mostrarVector(vec, ne);
-    p1=ordenarBurbuja(vec, ne);
-    p2= ordenarBurbujaV2(vec, ne);
-    p3=ordenarBurbujaV3(vec, ne);
-    cout<<"\nEl mas optimo es: "<<endl;
-    comparaciones(p1,p2,p3);
+// int main()
+// {
+//     int ne;
+//     int p1;
+//     int p2;
+//     int p3;
+//     cout << "Ingrese el numero de elementos: ";
+//     cin >> ne;
+//     int vec[ne];
+//     llenarTabla(vec, ne);
+//     cout << "Vector original: ";
+//     mostrarVector(vec, ne);
+//     cout << endl;
+//     cout << "El numero de comparaciones burbuja v1 es: " << ordenarBurbuja(vec, ne) << endl;
+//     cout << "El numero de comparaciones burbuja v2 es: " << ordenarBurbujaV2(vec, ne) << endl;
+//     cout << "El numero de comparaciones burbuja v3 es: " << ordenarBurbujaV3(vec, ne) << endl;
+//     cout << "Vector ordenado" << endl;
+//     mostrarVector(vec, ne);
+//     p1=ordenarBurbuja(vec, ne);
+//     p2= ordenarBurbujaV2(vec, ne);
+//     p3=ordenarBurbujaV3(vec, ne);
+//     cout<<"\nEl mas optimo es: "<<endl;
+//     comparaciones(p1,p2,p3);
 
  
-    return 0;
-}
+//     return 0;
+// }

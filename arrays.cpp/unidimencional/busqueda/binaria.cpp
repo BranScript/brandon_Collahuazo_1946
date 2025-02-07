@@ -1,113 +1,100 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
+#include <ctime>
+#include "../../../librerias/arrays.h"
 using namespace std;
+using namespace vector;
 
-void llenarTabla(int v[], int n)
-{
-    srand(time(NULL));
-    for (int i = 0; i < n; i++)
-    {
-        v[i] = rand() % 20 + 1;
-    }
+int datos;
+int v[100];
+
+int numeroDatos() {
+    int ndatos;
+    cout << "Cuantos datos quiere: ";
+    cin >> ndatos;
+    return ndatos;
 }
-void verVector(int v[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
+
+// void llenarVector(int &datos, int v[]) {
+//     srand(time(NULL));
+//     datos = numeroDatos();
+//     for (int i = 0; i < datos; i++) {
+//         v[i] = 1 + rand() % 20;
+//     }
+// }
+
+void verVector(int datos, int v[]) {
+    for (int i = 0; i < datos; i++) {
         cout << v[i] << " ";
     }
+    cout << endl;
 }
-int ordenSeleccion(int v[], int n)
-{
-    int contador = 0;
+
+void ordenInsercion(int n, int v[]) {
     int aux;
-    bool cambios = true;
-    for (int i = 1; i < n; i++)
-    {
+    for (int i = 1; i < n; i++) {
         aux = v[i];
         int j = i - 1;
-        while (j >= 0)
-        {
-            contador++;
-            if (aux < v[j])
-            {
-                v[j + 1] = v[j];
-                v[j] = aux;
-            }
+        while (j >= 0 && aux < v[j]) {
+            v[j + 1] = v[j];
             j--;
         }
+        v[j + 1] = aux;
     }
- 
 }
-bool isEntontrado( int v[], int n, int elemento){
-    int i;
-    int arriba=v[n-1];
-    int abajo=v[0];
-    int centro;
-    bool encontrado=false;
-    
-    for ( i = 0; i < n; i++)
-    {
-       if (v[i]==elemento)
-       {
-         encontrado=true;
-       }
-       
+
+int datoBuscado() {
+    int datob;
+    cout << "Ingrese el dato a buscar: ";
+    cin >> datob;
+    return datob;
+}
+
+bool busquedaBinaria(int datob, int datos, int v[], int &lugar) {
+    int inf = 0; // primera posición
+    int sup = datos - 1; // última posición
+    int mitad;
+
+    for (int i = 0; inf <= sup; i++) {
+        mitad = (inf + sup) / 2;
+
+        if (v[mitad] == datob) {
+            lugar = mitad; 
+            return true;
+        }
+        if (v[mitad] > datob) {
+            sup = mitad - 1; 
+        } else {
+            inf = mitad + 1; 
+        }
     }
-    return encontrado;
-    /*
-    int i;
-    int centro;
-
-    centro=(v[0]+v[n-1])/2;
-if v[centro]== elemento;
-    return centro;
-if  vec[centro]¡<= elemento>;
-    if vec[centro]< elemento;
-    for centro centro --
-    if vec[centro]> elemento;
-    for centro centro ++
-
-
-    
-    
-    */
+    return false; 
 }
-int main()
-{
-    int ne, dato;
-    cout << "Ingrese el numero de elementos: "<< endl;
-    cin >> ne;
-    int vec[ne];
-    llenarTabla(vec, ne);
-    cout << "Vector origuinal: \n";
-    verVector(vec, ne);
+
+void datoEncontrado(bool encontrado, int mitad) {
+    if (encontrado) {
+        cout << "El numero se encontro en la lugar: " << mitad+1 << endl;
+    } else {
+        cout << "El numero no se encontro" << endl;
+    }
+}
+void vectores(){
+	llenar(v, datos);
+    cout << "Vector original: " << endl;
+    verVector(datos, v);
+
     cout << "\nVector ordenado: " << endl;
-    ordenSeleccion(vec,ne);
-    verVector(vec, ne);
-    cout<<"\nIngreresa el dato a buscar"<< endl;
-    cin>> dato;
-    (isEntontrado(vec,5,dato) )?cout<<"El elemento esta en el array ":cout<<"El elemento no existe ";
-   
-
-    
+    ordenInsercion(datos, v);
+    verVector(datos, v);
+}
+void numExistente(){
+	vectores();
+	int datob = datoBuscado();
+    int lugar;
+    bool encontrado = busquedaBinaria(datob, datos, v, lugar);
+    datoEncontrado(encontrado, lugar);
 }
 
-
-
-
-// int main()
-// {
-//     int vector[5], dato;
-//     llenarDatos(vector,5);
-//     cout<<"Array origuinal "<<endl;
-//     verElementos(vector,5);
-//     cout<<"Array orfenado "<<endl;
-//     verElementos2(vector,5);
-
-//     // 
-//     // 
-//     // 
-//     return 0;
-// }
+int main() { 
+	numExistente();
+    return 0;
+}
