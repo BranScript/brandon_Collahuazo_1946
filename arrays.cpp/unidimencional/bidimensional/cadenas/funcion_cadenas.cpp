@@ -66,7 +66,7 @@ bool esespacio(char cad1[]){
     return espacio;
 }
 bool mayusculas(char cad1[]){
-    bool mayuscula= true;
+    bool mayuscula= true;  
     for (int i = 0; i < strlen(cad1); i++)
     {
         if (isupper(cad1[i])==false)
