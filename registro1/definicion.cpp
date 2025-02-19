@@ -10,22 +10,17 @@ struct
 {
     string nombre;
     float nota;
-
 }e1, e2;
-
 void registro() {
-    persona p5, p6;
-   
+    persona p5, p6;  
 }
-
 int main() {
     persona p3, p4;
     
-    p3.nombe = "Brandon";
+    p3.nombe = "Brandon"; 
     p3.edad = 20;
     p3.estatura = 1.70;
     
-
     cout << "Datos de p1: " << endl;
     cout << "Nombre: " << p1.nombe << endl;
     cout << "Edad: " << p1.edad << endl;
