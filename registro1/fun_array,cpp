@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+
+struct persona
+{
+    int id;
+    string nombre;
+    int edad;
+    bool casado=false;
+};
+
+void ingreseDatosRegistro(persona per[],int n)
+{
+    int i;
+    char resp;
+    for ( i = 0; i < n; i++)
+    {
+        per[i].id=i+1;
+        cout<<"Nombre: ";
+        cin>>per[i].nombre;
+        cout<<"edad: ";
+        cin>>per[i].edad;
+        cout<<"Es casado? <<s/n: ";
+        cin.get(resp);
+        cin.ignore();
+        if (resp=='s'||resp=='S')
+        {
+            per[i].casado=true;
+        }
+        
+    }
+    
+}
+void MostrarDatosRegistro(persona per[],int n)
+{
+    int i;
+    cout<<"ID\tNOMBRE\tEDAD\tCASADO"<<endl;
+    for ( i = 0; i < n; i++)
+    {
+        cout<<per[i].id<<"\t";
+        cout<<per[i].nombre<<"\t";
+        cout<<per[i].edad<<"\t";
+        cout<<per[i].casado<<endl;
+    }
+    
+}
+int main(int argc, char const *argv[])
+{
+    int np;
+    cout<<"Ingrese la cantidad de personas: ";
+    cin>>np;
+    persona persona[np];
+    ingreseDatosRegistro(persona, np);
+    return 0;
+}
